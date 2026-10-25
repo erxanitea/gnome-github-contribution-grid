@@ -6,7 +6,7 @@ import GObject from 'gi://GObject';
 import Soup from 'gi://Soup';
 import St from 'gi://St';
 
-import {Extension, gettext as _, ngettext} from 'resource:///org/gnome/shell/extensions/extension.js';
+import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 import {getPalette} from './colorThemes.js';
 import {
     buildContributionsUrl,
@@ -29,6 +29,8 @@ import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 const DECODER = new TextDecoder();
 const ENCODER = new TextEncoder();
 
+Gio._promisify(Soup.Session.prototype, 'send_and_read_async', 'send_and_read_finish');
+
 function createBoxLayout(params = {}) {
     const {vertical, spacing, ...rest} = params;
     const box = new St.BoxLayout(rest);
@@ -38,18 +40,12 @@ function createBoxLayout(params = {}) {
         else if ('vertical' in box)
             box.vertical = Boolean(vertical);
     }
-    if (spacing !== undefined) {
-        if ('spacing' in box) {
-            box.spacing = spacing;
-        } else if (box.layout_manager && 'spacing' in box.layout_manager) {
-            box.layout_manager.spacing = spacing;
-        }
-    }
+    if (spacing !== undefined)
+        box.spacing = spacing;
     return box;
 }
 
 async function fetchGraphQLContributions(session, username, token) {
-    Gio._promisify(Soup.Session.prototype, 'send_and_read_async', 'send_and_read_finish');
 
     const query = JSON.stringify({
         query: `query($login: String!) {
@@ -120,7 +116,6 @@ async function fetchGraphQLContributions(session, username, token) {
 }
 
 async function fetchPublicContributions(session, username) {
-    Gio._promisify(Soup.Session.prototype, 'send_and_read_async', 'send_and_read_finish');
 
     const message = Soup.Message.new('GET', buildContributionsUrl(username));
     message.request_headers.append('User-Agent', 'github-contribution-grid-extension');
@@ -158,10 +153,13 @@ async function fetchContributions(session, username, token = '') {
     return await fetchPublicContributions(session, username);
 }
 
-const GithubGridIndicator = GObject.registerClass(
 class GithubGridIndicator extends PanelMenu.Button {
-    _init(extension, settings, session) {
-        super._init(0.0, extension.metadata.name, false);
+    static {
+        GObject.registerClass(this);
+    }
+
+    constructor(extension, settings, session) {
+        super(0.0, extension.metadata.name, false);
         this.accessible_name = extension.metadata.name;
         this._extension = extension;
         this._settings = settings;
@@ -283,8 +281,6 @@ class GithubGridIndicator extends PanelMenu.Button {
             this
         );
 
-        this.connect('destroy', () => this._onDestroy());
-
         if (!this._getUsername())
             this.showUnconfiguredState();
         else
@@ -387,7 +383,10 @@ class GithubGridIndicator extends PanelMenu.Button {
     }
 
     startAutoRefresh() {
-        this.stopAutoRefresh();
+        if (this._refreshSourceId) {
+            GLib.Source.remove(this._refreshSourceId);
+            this._refreshSourceId = null;
+        }
 
         const minutes = this._getRefreshIntervalMinutes();
         this._refreshSourceId = GLib.timeout_add_seconds(
@@ -403,7 +402,7 @@ class GithubGridIndicator extends PanelMenu.Button {
     }
 
     stopAutoRefresh() {
-        if (this._refreshSourceId !== null) {
+        if (this._refreshSourceId) {
             GLib.Source.remove(this._refreshSourceId);
             this._refreshSourceId = null;
         }
@@ -566,15 +565,20 @@ class GithubGridIndicator extends PanelMenu.Button {
         this._grid.show();
     }
 
-    _onDestroy() {
+    destroy() {
+        if (this._refreshSourceId) {
+            GLib.Source.remove(this._refreshSourceId);
+            this._refreshSourceId = null;
+        }
+
         this._requestSerial += 1;
         this._isRefreshing = false;
-        this.stopAutoRefresh();
 
         if (this._settings) {
             this._settings.disconnectObject(this);
             this._settings = null;
         }
+
         if (this._gridFrame)
             this._gridFrame.label_actor = null;
 
@@ -591,8 +595,10 @@ class GithubGridIndicator extends PanelMenu.Button {
         this._content = null;
         this._session = null;
         this._extension = null;
+
+        super.destroy();
     }
-});
+}
 
 export default class GithubGridExtension extends Extension {
     enable() {

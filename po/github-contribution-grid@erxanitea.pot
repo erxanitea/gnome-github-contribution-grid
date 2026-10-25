@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the Github Contribution Grid package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Github Contribution Grid\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-25 15:36+0800\n"
+"POT-Creation-Date: 2026-10-26 00:26+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,91 +17,99 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: extension.js:170
+#: extension.js:176
 msgid "Recent contributions"
 msgstr ""
 
-#: extension.js:179 extension.js:300
+#: extension.js:185 extension.js:309
 msgid "No contributions"
 msgstr ""
 
-#: extension.js:205
+#: extension.js:211
 msgid "GitHub Contributions"
 msgstr ""
 
-#: extension.js:256
+#: extension.js:262
 msgid "Refresh now"
 msgstr ""
 
-#: extension.js:262
+#: extension.js:268
 msgid "Preferences"
 msgstr ""
 
-#: extension.js:331
+#: extension.js:340
 #, javascript-format
 msgid "Invalid GitHub username: %s"
 msgstr ""
 
-#: extension.js:332
+#: extension.js:341
 msgid "Use only letters, numbers, and single hyphens between characters."
 msgstr ""
 
-#: extension.js:363
+#: extension.js:373
 #, javascript-format
 msgid "Unable to load @%s."
 msgstr ""
 
-#: extension.js:404
+#: extension.js:417
 #, javascript-format
 msgid "Loading contribution grid%s..."
 msgstr ""
 
-#: extension.js:405
+#: extension.js:418
 msgid "Fetching public contribution data from GitHub."
 msgstr ""
 
-#: extension.js:415
+#: extension.js:427
+msgid "GitHub Username Not Configured"
+msgstr ""
+
+#: extension.js:428
+msgid "Open Preferences to enter your GitHub username."
+msgstr ""
+
+#: extension.js:439
 #, javascript-format
 msgid "No contribution data available%s."
 msgstr ""
 
-#: extension.js:416
+#: extension.js:440
 msgid "GitHub returned no contribution cells for the selected period."
 msgstr ""
 
-#: extension.js:426
+#: extension.js:451
 #, javascript-format
 msgid "Loaded %d daily cells for @%s."
 msgstr ""
 
-#: extension.js:427
+#: extension.js:452
 #, javascript-format
 msgid "Public contributions from %s to %s."
 msgstr ""
 
-#: extension.js:429
+#: extension.js:454
 #, javascript-format
 msgid "Total: %d | Peak day: %d | Longest streak: %d"
 msgstr ""
 
-#: extension.js:442
+#: extension.js:481
 #, javascript-format
 msgid "Showing cached data from %s until refresh completes."
 msgstr ""
 
-#: extension.js:446
+#: extension.js:485
 msgid "Unable to load contribution data."
 msgstr ""
 
-#: extension.js:446
+#: extension.js:485
 msgid "Check the username or network access."
 msgstr ""
 
-#: extension.js:456
+#: extension.js:495
 msgid "Error loading contributions"
 msgstr ""
 
-#: extension.js:517
+#: extension.js:556
 msgid "Public contributions from the last year."
 msgstr ""
 
@@ -121,56 +129,156 @@ msgstr ""
 msgid "GitHub Username"
 msgstr ""
 
-#: prefs.js:31
-msgid "Refresh Interval"
+#: prefs.js:26
+msgid ""
+"Enter the GitHub username whose public contribution activity should be "
+"displayed."
 msgstr ""
 
 #: prefs.js:32
+msgid "Refresh Interval"
+msgstr ""
+
+#: prefs.js:33
 msgid "Minutes between background refreshes"
 msgstr ""
 
-#: prefs.js:45
+#: prefs.js:34
+msgid ""
+"How frequently the extension queries GitHub in the background (5 to 1440 "
+"minutes)."
+msgstr ""
+
+#: prefs.js:47
 msgid "Appearance"
 msgstr ""
 
-#: prefs.js:46
+#: prefs.js:48
 msgid "Customize the contribution grid colors and appearance."
 msgstr ""
 
-#: prefs.js:58
+#: prefs.js:60
 msgid "Color Theme"
 msgstr ""
 
-#: prefs.js:97
+#: prefs.js:61
+msgid "Choose a curated color palette or switch to custom accent colors."
+msgstr ""
+
+#: prefs.js:100
 msgid "Palette Preview"
 msgstr ""
 
-#: prefs.js:98
+#: prefs.js:101
 msgid "Levels 0 to 4 preview"
 msgstr ""
 
-#: prefs.js:111
+#: prefs.js:114
 msgid "Custom Accent Color"
 msgstr ""
 
-#: prefs.js:112
+#: prefs.js:115
 msgid "Choose a custom color for contributions"
 msgstr ""
 
-#: prefs.js:146
+#: prefs.js:149
 msgid "Custom Hex Code"
 msgstr ""
 
-#: prefs.js:172
-msgid "Future Authentication"
+#: prefs.js:175
+msgid "Authentication (Optional)"
 msgstr ""
 
-#: prefs.js:173
+#: prefs.js:176
 msgid ""
-"The token is stored for future authenticated GitHub API work. The current "
-"MVP still uses the public contributions endpoint."
+"Include private contributions and increase API rate limits with a Personal "
+"Access Token (PAT). Public contributions do not require authentication."
 msgstr ""
 
-#: prefs.js:177
-msgid "GitHub Token"
+#: prefs.js:180
+msgid "GitHub Personal Access Token"
+msgstr ""
+
+#: prefs.js:181
+msgid ""
+"A Classic or Fine-grained token with \"read:user\" or \"repo\" permission "
+"allows fetching private contributions via the GitHub GraphQL API."
+msgstr ""
+
+#: prefs.js:186
+msgid "Setup GitHub Token"
+msgstr ""
+
+#: prefs.js:187
+msgid "Generate a Personal Access Token with pre-filled \"read:user\" scope"
+msgstr ""
+
+#: prefs.js:188
+msgid "Click to open github.com/settings/tokens in your browser."
+msgstr ""
+
+#: prefs.js:193
+msgid "Generate Token"
+msgstr ""
+
+#: prefs.js:195
+msgid "Open GitHub token generator in web browser"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:7
+msgid "GitHub username"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:8
+msgid "The GitHub account used to load contribution data."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:12
+msgid "Refresh interval in minutes"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:13
+msgid "How often the extension should refresh GitHub data."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:17
+msgid "GitHub token"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:18
+msgid ""
+"Personal access token used to load private contributions and avoid rate "
+"limits."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:22
+msgid "Cached contribution result"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:23
+msgid "Stores the last successful contribution payload for faster startup."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:27
+msgid "Color theme"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:28
+msgid "Palette used to style contribution cells."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:32
+msgid "Custom accent color"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:33
+msgid "Custom color hex for highest contribution level."
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:37
+msgid "Custom background color"
+msgstr ""
+
+#: schemas/org.gnome.shell.extensions.github-contribution-grid.gschema.xml:38
+msgid "Custom color hex for level 0 cells."
 msgstr ""

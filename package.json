@@ -6,12 +6,14 @@
   "private": true,
   "license": "GPL-3.0-or-later",
   "scripts": {
+    "lint": "eslint extension.js prefs.js colorThemes.js contributionData.js",
     "pack": "make pack",
     "install-ext": "make install"
   },
   "devDependencies": {
     "@girs/gjs": "^5.5.0",
     "@girs/gnome-shell": "^50.0.4",
-    "@girs/soup-3.0": "^5.5.0"
+    "@girs/soup-3.0": "^5.5.0",
+    "eslint": "^10.13.0"
   }
 }
