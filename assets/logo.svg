@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a3038"/>
+      <stop offset="100%" stop-color="#181c22"/>
+    </linearGradient>
+    <linearGradient id="rimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#464e58"/>
+      <stop offset="100%" stop-color="#22272e"/>
+    </linearGradient>
+    <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- GNOME Adwaita Outer Squircle -->
+  <rect x="8" y="8" width="112" height="112" rx="28" ry="28" fill="url(#bgGrad)" stroke="url(#rimGrad)" stroke-width="2" filter="url(#cardShadow)"/>
+
+  <!-- Inset Matrix Well -->
+  <rect x="22" y="22" width="84" height="84" rx="14" ry="14" fill="#14181d" stroke="#252b33" stroke-width="1.2"/>
+
+  <!-- 7x7 Heatmap Matrix forming "G" -->
+  <g transform="translate(27, 27)">
+    <!-- Row 0 -->
+    <rect x="0"  y="0"  width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="11" y="0"  width="9.5" height="9.5" rx="2.5" fill="#0e4429"/>
+    <rect x="22" y="0"  width="9.5" height="9.5" rx="2.5" fill="#56d364" filter="url(#neonGlow)"/>
+    <rect x="33" y="0"  width="9.5" height="9.5" rx="2.5" fill="#39d353" filter="url(#neonGlow)"/>
+    <rect x="44" y="0"  width="9.5" height="9.5" rx="2.5" fill="#39d353" filter="url(#neonGlow)"/>
+    <rect x="55" y="0"  width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="66" y="0"  width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+
+    <!-- Row 1 -->
+    <rect x="0"  y="11" width="9.5" height="9.5" rx="2.5" fill="#006d32"/>
+    <rect x="11" y="11" width="9.5" height="9.5" rx="2.5" fill="#39d353" filter="url(#neonGlow)"/>
+    <rect x="22" y="11" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="33" y="11" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="44" y="11" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="55" y="11" width="9.5" height="9.5" rx="2.5" fill="#39d353" filter="url(#neonGlow)"/>
+    <rect x="66" y="11" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+
+    <!-- Row 2 -->
+    <rect x="0"  y="22" width="9.5" height="9.5" rx="2.5" fill="#006d32"/>
+    <rect x="11" y="22" width="9.5" height="9.5" rx="2.5" fill="#56d364" filter="url(#neonGlow)"/>
+    <rect x="22" y="22" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="33" y="22" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="44" y="22" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="55" y="22" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="66" y="22" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+
+    <!-- Row 3 (Crossbar of G) -->
+    <rect x="0"  y="33" width="9.5" height="9.5" rx="2.5" fill="#26a641"/>
+    <rect x="11" y="33" width="9.5" height="9.5" rx="2.5" fill="#39d353" filter="url(#neonGlow)"/>
+    <rect x="22" y="33" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="33" y="33" width="9.5" height="9.5" rx="2.5" fill="#26a641"/>
+    <rect x="44" y="33" width="9.5" height="9.5" rx="2.5" fill="#39d353" filter="url(#neonGlow)"/>
+    <rect x="55" y="33" width="9.5" height="9.5" rx="2.5" fill="#56d364" filter="url(#neonGlow)"/>
+    <rect x="66" y="33" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+
+    <!-- Row 4 -->
+    <rect x="0"  y="44" width="9.5" height="9.5" rx="2.5" fill="#0e4429"/>
+    <rect x="11" y="44" width="9.5" height="9.5" rx="2.5" fill="#39d353" filter="url(#neonGlow)"/>
+    <rect x="22" y="44" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="33" y="44" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="44" y="44" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="55" y="44" width="9.5" height="9.5" rx="2.5" fill="#39d353" filter="url(#neonGlow)"/>
+    <rect x="66" y="44" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+
+    <!-- Row 5 (Bottom curve) -->
+    <rect x="0"  y="55" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="11" y="55" width="9.5" height="9.5" rx="2.5" fill="#39d353" filter="url(#neonGlow)"/>
+    <rect x="22" y="55" width="9.5" height="9.5" rx="2.5" fill="#26a641"/>
+    <rect x="33" y="55" width="9.5" height="9.5" rx="2.5" fill="#26a641"/>
+    <rect x="44" y="55" width="9.5" height="9.5" rx="2.5" fill="#56d364" filter="url(#neonGlow)"/>
+    <rect x="55" y="55" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="66" y="55" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+
+    <!-- Row 6 -->
+    <rect x="0"  y="66" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="11" y="66" width="9.5" height="9.5" rx="2.5" fill="#006d32"/>
+    <rect x="22" y="66" width="9.5" height="9.5" rx="2.5" fill="#006d32"/>
+    <rect x="33" y="66" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="44" y="66" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="55" y="66" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+    <rect x="66" y="66" width="9.5" height="9.5" rx="2.5" fill="#20252c"/>
+  </g>
+</svg>

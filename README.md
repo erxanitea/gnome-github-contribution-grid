@@ -1,13 +1,15 @@
 <div align="center">
 
+<img src="assets/logo.png" alt="GitHub Contribution Grid Logo" width="128" />
+
 # GitHub Contribution Grid
 
 **A modern, lightweight GNOME Shell extension that brings your GitHub contribution graph directly to your top panel and dropdown menu.**
 
-[![GNOME Shell](https://img.shields.io/badge/GNOME-45%20to%2048-4a86cf?style=flat-square&logo=gnome&logoColor=white)](https://extensions.gnome.org)
+[![GNOME Shell](https://img.shields.io/badge/GNOME-45%20to%2051-4a86cf?style=flat-square&logo=gnome&logoColor=white)](https://extensions.gnome.org)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL--3.0-4caf50?style=flat-square)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Wayland%20%7C%20X11-orange?style=flat-square)](https://gitlab.gnome.org/GNOME/gnome-shell)
-[![Version](https://img.shields.io/badge/Version-1.0.0-9c27b0?style=flat-square)](metadata.json)
+[![Version](https://img.shields.io/badge/Version-1.0.1-9c27b0?style=flat-square)](metadata.json)
 
 <br/>
 

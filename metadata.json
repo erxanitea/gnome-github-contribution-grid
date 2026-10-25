@@ -12,10 +12,13 @@
     "45",
     "46",
     "47",
-    "48"
+    "48",
+    "49",
+    "50",
+    "51"
   ],
-  "version": 1,
-  "version-name": "1.0.0",
+  "version": 2,
+  "version-name": "1.0.1",
   "donations": {
     "github": "erxanitea"
   }
