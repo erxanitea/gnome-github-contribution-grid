@@ -1,6 +1,6 @@
 {
   "name": "github-contribution-grid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A GNOME Shell extension showing a GitHub contribution grid",
   "type": "module",
   "private": true,
