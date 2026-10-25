@@ -66,22 +66,25 @@
 
 ## 🚀 Installation
 
-### Option 1: Install from Source
+### Option 1: Install from GitHub Releases (Recommended)
+
+1. Download the latest `github-contribution-grid@erxanitea.shell-extension.zip` from the [Releases](https://github.com/erxanitea/gnome-github-contribution-grid/releases) page.
+2. Install via terminal:
+   ```bash
+   gnome-extensions install github-contribution-grid@erxanitea.shell-extension.zip --force
+   ```
+
+### Option 2: Install from Source
 
 Ensure you have `git`, `make`, and `glib2.0` (for `glib-compile-schemas`) installed:
 
 ```bash
-git clone https://github.com/erxanitea/github-contribution.git
-cd github-contribution
-```
-
-Compile schemas and install into your local extension directory (`~/.local/share/gnome-shell/extensions/`):
-
-```bash
+git clone https://github.com/erxanitea/gnome-github-contribution-grid.git
+cd gnome-github-contribution-grid
 make install
 ```
 
-### Option 2: Reload & Enable
+### Reload & Enable
 
 #### On Wayland:
 Log out and log back in to reload GNOME Shell, then enable:
