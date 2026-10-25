@@ -1,0 +1,22 @@
+{
+  "name": "Github Contribution Grid",
+  "description": "Shows a GitHub-style contribution grid on the top bar and dropdown menu.",
+  "uuid": "github-contribution-grid@erxanitea",
+  "url": "https://github.com/erxanitea/gnome-github-contribution-grid",
+  "settings-schema": "org.gnome.shell.extensions.github-contribution-grid",
+  "gettext-domain": "github-contribution-grid@erxanitea",
+  "session-modes": [
+    "user"
+  ],
+  "shell-version": [
+    "45",
+    "46",
+    "47",
+    "48"
+  ],
+  "version": 1,
+  "version-name": "1.0.0",
+  "donations": {
+    "github": "erxanitea"
+  }
+}

@@ -1,0 +1,176 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-25 15:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: extension.js:170
+msgid "Recent contributions"
+msgstr ""
+
+#: extension.js:179 extension.js:300
+msgid "No contributions"
+msgstr ""
+
+#: extension.js:205
+msgid "GitHub Contributions"
+msgstr ""
+
+#: extension.js:256
+msgid "Refresh now"
+msgstr ""
+
+#: extension.js:262
+msgid "Preferences"
+msgstr ""
+
+#: extension.js:331
+#, javascript-format
+msgid "Invalid GitHub username: %s"
+msgstr ""
+
+#: extension.js:332
+msgid "Use only letters, numbers, and single hyphens between characters."
+msgstr ""
+
+#: extension.js:363
+#, javascript-format
+msgid "Unable to load @%s."
+msgstr ""
+
+#: extension.js:404
+#, javascript-format
+msgid "Loading contribution grid%s..."
+msgstr ""
+
+#: extension.js:405
+msgid "Fetching public contribution data from GitHub."
+msgstr ""
+
+#: extension.js:415
+#, javascript-format
+msgid "No contribution data available%s."
+msgstr ""
+
+#: extension.js:416
+msgid "GitHub returned no contribution cells for the selected period."
+msgstr ""
+
+#: extension.js:426
+#, javascript-format
+msgid "Loaded %d daily cells for @%s."
+msgstr ""
+
+#: extension.js:427
+#, javascript-format
+msgid "Public contributions from %s to %s."
+msgstr ""
+
+#: extension.js:429
+#, javascript-format
+msgid "Total: %d | Peak day: %d | Longest streak: %d"
+msgstr ""
+
+#: extension.js:442
+#, javascript-format
+msgid "Showing cached data from %s until refresh completes."
+msgstr ""
+
+#: extension.js:446
+msgid "Unable to load contribution data."
+msgstr ""
+
+#: extension.js:446
+msgid "Check the username or network access."
+msgstr ""
+
+#: extension.js:456
+msgid "Error loading contributions"
+msgstr ""
+
+#: extension.js:517
+msgid "Public contributions from the last year."
+msgstr ""
+
+#: prefs.js:15
+msgid "Github Contribution Grid"
+msgstr ""
+
+#: prefs.js:20
+msgid "General"
+msgstr ""
+
+#: prefs.js:21
+msgid "Configure the GitHub account and refresh behavior."
+msgstr ""
+
+#: prefs.js:25
+msgid "GitHub Username"
+msgstr ""
+
+#: prefs.js:31
+msgid "Refresh Interval"
+msgstr ""
+
+#: prefs.js:32
+msgid "Minutes between background refreshes"
+msgstr ""
+
+#: prefs.js:45
+msgid "Appearance"
+msgstr ""
+
+#: prefs.js:46
+msgid "Customize the contribution grid colors and appearance."
+msgstr ""
+
+#: prefs.js:58
+msgid "Color Theme"
+msgstr ""
+
+#: prefs.js:97
+msgid "Palette Preview"
+msgstr ""
+
+#: prefs.js:98
+msgid "Levels 0 to 4 preview"
+msgstr ""
+
+#: prefs.js:111
+msgid "Custom Accent Color"
+msgstr ""
+
+#: prefs.js:112
+msgid "Choose a custom color for contributions"
+msgstr ""
+
+#: prefs.js:146
+msgid "Custom Hex Code"
+msgstr ""
+
+#: prefs.js:172
+msgid "Future Authentication"
+msgstr ""
+
+#: prefs.js:173
+msgid ""
+"The token is stored for future authenticated GitHub API work. The current "
+"MVP still uses the public contributions endpoint."
+msgstr ""
+
+#: prefs.js:177
+msgid "GitHub Token"
+msgstr ""

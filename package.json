@@ -1,0 +1,17 @@
+{
+  "name": "github-contribution-grid",
+  "version": "1.0.0",
+  "description": "A GNOME Shell extension showing a GitHub contribution grid",
+  "type": "module",
+  "private": true,
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "pack": "make pack",
+    "install-ext": "make install"
+  },
+  "devDependencies": {
+    "@girs/gjs": "^5.5.0",
+    "@girs/gnome-shell": "^50.0.4",
+    "@girs/soup-3.0": "^5.5.0"
+  }
+}

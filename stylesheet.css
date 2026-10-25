@@ -1,0 +1,46 @@
+.github-grid-panel-box {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.github-grid-panel-cell {
+    border-radius: 3px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.github-grid-popup {
+    min-width: 320px;
+    padding: 12px;
+}
+
+.github-grid-title {
+    font-weight: 700;
+}
+
+.github-grid-state {
+    opacity: 0.85;
+}
+
+.github-grid-state-error {
+    color: #ff7b72;
+    opacity: 1;
+}
+
+.github-grid-hint {
+    opacity: 0.7;
+    max-width: 320px;
+}
+
+.github-grid-summary {
+    font-weight: 700;
+}
+
+.github-grid-frame {
+    padding-top: 6px;
+}
+
+.github-grid-cell {
+    border-radius: 2px;
+    border: 1px solid rgba(240, 246, 252, 0.04);
+}
+

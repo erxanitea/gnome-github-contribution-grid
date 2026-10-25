@@ -1,0 +1,13 @@
+schemas/gschemas.compiled
+*.zip
+*.tar.gz
+dist/
+build/
+.kilo/
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+node_modules/

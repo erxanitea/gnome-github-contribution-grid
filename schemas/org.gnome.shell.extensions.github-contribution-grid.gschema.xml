@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.github-contribution-grid"
+          path="/org/gnome/shell/extensions/github-contribution-grid/">
+    <key name="username" type="s">
+      <default>''</default>
+      <summary>GitHub username</summary>
+      <description>The GitHub account used to load contribution data.</description>
+    </key>
+    <key name="refresh-interval-minutes" type="i">
+      <default>60</default>
+      <summary>Refresh interval in minutes</summary>
+      <description>How often the extension should refresh GitHub data.</description>
+    </key>
+    <key name="github-token" type="s">
+      <default>''</default>
+      <summary>GitHub token</summary>
+      <description>Personal access token used to load private contributions and avoid rate limits.</description>
+    </key>
+    <key name="cached-result" type="s">
+      <default>''</default>
+      <summary>Cached contribution result</summary>
+      <description>Stores the last successful contribution payload for faster startup.</description>
+    </key>
+    <key name="color-theme" type="s">
+      <default>'github'</default>
+      <summary>Color theme</summary>
+      <description>Palette used to style contribution cells.</description>
+    </key>
+    <key name="custom-color" type="s">
+      <default>'#39d353'</default>
+      <summary>Custom accent color</summary>
+      <description>Custom color hex for highest contribution level.</description>
+    </key>
+    <key name="custom-bg-color" type="s">
+      <default>'#2d333b'</default>
+      <summary>Custom background color</summary>
+      <description>Custom color hex for level 0 cells.</description>
+    </key>
+  </schema>
+</schemalist>
