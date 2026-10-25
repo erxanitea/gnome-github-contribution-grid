@@ -153,10 +153,13 @@ async function fetchContributions(session, username, token = '') {
     return await fetchPublicContributions(session, username);
 }
 
-const GithubGridIndicator = GObject.registerClass(
 class GithubGridIndicator extends PanelMenu.Button {
-    _init(extension, settings, session) {
-        super._init(0.0, extension.metadata.name, false);
+    static {
+        GObject.registerClass(this);
+    }
+
+    constructor(extension, settings, session) {
+        super(0.0, extension.metadata.name, false);
         this.accessible_name = extension.metadata.name;
         this._extension = extension;
         this._settings = settings;
@@ -595,7 +598,7 @@ class GithubGridIndicator extends PanelMenu.Button {
 
         super.destroy();
     }
-});
+}
 
 export default class GithubGridExtension extends Extension {
     enable() {
