@@ -40,13 +40,8 @@ function createBoxLayout(params = {}) {
         else if ('vertical' in box)
             box.vertical = Boolean(vertical);
     }
-    if (spacing !== undefined) {
-        if ('spacing' in box) {
-            box.spacing = spacing;
-        } else if (box.layout_manager && 'spacing' in box.layout_manager) {
-            box.layout_manager.spacing = spacing;
-        }
-    }
+    if (spacing !== undefined)
+        box.spacing = spacing;
     return box;
 }
 
@@ -283,8 +278,6 @@ class GithubGridIndicator extends PanelMenu.Button {
             this
         );
 
-        this.connect('destroy', () => this._onDestroy());
-
         if (!this._getUsername())
             this.showUnconfiguredState();
         else
@@ -387,7 +380,10 @@ class GithubGridIndicator extends PanelMenu.Button {
     }
 
     startAutoRefresh() {
-        this.stopAutoRefresh();
+        if (this._refreshSourceId) {
+            GLib.Source.remove(this._refreshSourceId);
+            this._refreshSourceId = null;
+        }
 
         const minutes = this._getRefreshIntervalMinutes();
         this._refreshSourceId = GLib.timeout_add_seconds(
@@ -403,7 +399,7 @@ class GithubGridIndicator extends PanelMenu.Button {
     }
 
     stopAutoRefresh() {
-        if (this._refreshSourceId !== null) {
+        if (this._refreshSourceId) {
             GLib.Source.remove(this._refreshSourceId);
             this._refreshSourceId = null;
         }
@@ -567,24 +563,19 @@ class GithubGridIndicator extends PanelMenu.Button {
     }
 
     destroy() {
-        this.stopAutoRefresh();
-        this._onDestroy();
-        super.destroy();
-    }
-
-    _onDestroy() {
-        if (this._isDestroyed)
-            return;
-        this._isDestroyed = true;
+        if (this._refreshSourceId) {
+            GLib.Source.remove(this._refreshSourceId);
+            this._refreshSourceId = null;
+        }
 
         this._requestSerial += 1;
         this._isRefreshing = false;
-        this.stopAutoRefresh();
 
         if (this._settings) {
             this._settings.disconnectObject(this);
             this._settings = null;
         }
+
         if (this._gridFrame)
             this._gridFrame.label_actor = null;
 
@@ -601,6 +592,8 @@ class GithubGridIndicator extends PanelMenu.Button {
         this._content = null;
         this._session = null;
         this._extension = null;
+
+        super.destroy();
     }
 });
 
@@ -616,7 +609,6 @@ export default class GithubGridExtension extends Extension {
 
     disable() {
         if (this._indicator) {
-            this._indicator.stopAutoRefresh();
             this._indicator.destroy();
             this._indicator = null;
         }

@@ -115,62 +115,35 @@ export default class GithubGridPreferences extends ExtensionPreferences {
             subtitle: _('Choose a custom color for contributions'),
         });
 
-        let colorButton = null;
-        if (Gtk.ColorDialogButton && Gtk.ColorDialog) {
-            const colorDialog = new Gtk.ColorDialog({
-                with_alpha: false,
-            });
+        const colorDialog = new Gtk.ColorDialog({
+            with_alpha: false,
+        });
 
-            colorButton = new Gtk.ColorDialogButton({
-                dialog: colorDialog,
-                valign: Gtk.Align.CENTER,
-            });
+        const colorButton = new Gtk.ColorDialogButton({
+            dialog: colorDialog,
+            valign: Gtk.Align.CENTER,
+        });
 
-            const initialRgba = new Gdk.RGBA();
-            initialRgba.parse(settings.get_string('custom-color') || '#39d353');
-            colorButton.set_rgba(initialRgba);
+        const initialRgba = new Gdk.RGBA();
+        initialRgba.parse(settings.get_string('custom-color') || '#39d353');
+        colorButton.set_rgba(initialRgba);
 
-            colorButton.connect('notify::rgba', () => {
-                const rgba = colorButton.get_rgba();
-                const hex = '#' + [rgba.red, rgba.green, rgba.blue].map(v =>
-                    Math.round(v * 255).toString(16).padStart(2, '0')
-                ).join('');
+        colorButton.connect('notify::rgba', () => {
+            const rgba = colorButton.get_rgba();
+            const hex = '#' + [rgba.red, rgba.green, rgba.blue].map(v =>
+                Math.round(v * 255).toString(16).padStart(2, '0')
+            ).join('');
 
-                settings.set_string('custom-color', hex);
-                const customIndex = COLOR_THEMES.findIndex(t => t.id === 'custom');
-                if (themeRow.selected !== customIndex && customIndex >= 0)
-                    themeRow.selected = customIndex;
-                else
-                    previewArea.queue_draw();
-            });
-        } else if (Gtk.ColorButton) {
-            colorButton = new Gtk.ColorButton({
-                valign: Gtk.Align.CENTER,
-            });
+            settings.set_string('custom-color', hex);
+            const customIndex = COLOR_THEMES.findIndex(t => t.id === 'custom');
+            if (themeRow.selected !== customIndex && customIndex >= 0)
+                themeRow.selected = customIndex;
+            else
+                previewArea.queue_draw();
+        });
 
-            const initialRgba = new Gdk.RGBA();
-            initialRgba.parse(settings.get_string('custom-color') || '#39d353');
-            colorButton.set_rgba(initialRgba);
-
-            colorButton.connect('color-set', () => {
-                const rgba = colorButton.get_rgba();
-                const hex = '#' + [rgba.red, rgba.green, rgba.blue].map(v =>
-                    Math.round(v * 255).toString(16).padStart(2, '0')
-                ).join('');
-
-                settings.set_string('custom-color', hex);
-                const customIndex = COLOR_THEMES.findIndex(t => t.id === 'custom');
-                if (themeRow.selected !== customIndex && customIndex >= 0)
-                    themeRow.selected = customIndex;
-                else
-                    previewArea.queue_draw();
-            });
-        }
-
-        if (colorButton) {
-            customColorRow.add_suffix(colorButton);
-            customColorRow.set_activatable_widget(colorButton);
-        }
+        customColorRow.add_suffix(colorButton);
+        customColorRow.set_activatable_widget(colorButton);
 
         const hexEntryRow = new Adw.EntryRow({
             title: _('Custom Hex Code'),
