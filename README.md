@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/logo.png" alt="GitHub Contribution Grid Logo" width="128" />
+
 # GitHub Contribution Grid
 
 **A modern, lightweight GNOME Shell extension that brings your GitHub contribution graph directly to your top panel and dropdown menu.**
