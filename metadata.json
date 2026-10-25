@@ -5,9 +5,6 @@
   "url": "https://github.com/erxanitea/gnome-github-contribution-grid",
   "settings-schema": "org.gnome.shell.extensions.github-contribution-grid",
   "gettext-domain": "github-contribution-grid@erxanitea",
-  "session-modes": [
-    "user"
-  ],
   "shell-version": [
     "45",
     "46",
@@ -17,7 +14,6 @@
     "50",
     "51"
   ],
-  "version": 2,
   "version-name": "1.0.1",
   "donations": {
     "github": "erxanitea"

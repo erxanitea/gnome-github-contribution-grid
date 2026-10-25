@@ -69,7 +69,7 @@ export default class GithubGridPreferences extends ExtensionPreferences {
             valign: Gtk.Align.CENTER,
         });
 
-        previewArea.set_draw_func((area, cr, width, height) => {
+        previewArea.set_draw_func((area, cr) => {
             const currentTheme = settings.get_string('color-theme');
             const customHex = settings.get_string('custom-color');
             const bgHex = settings.get_string('custom-bg-color');

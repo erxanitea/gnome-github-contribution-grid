@@ -6,7 +6,7 @@ import GObject from 'gi://GObject';
 import Soup from 'gi://Soup';
 import St from 'gi://St';
 
-import {Extension, gettext as _, ngettext} from 'resource:///org/gnome/shell/extensions/extension.js';
+import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
 import {getPalette} from './colorThemes.js';
 import {
     buildContributionsUrl,
@@ -29,6 +29,8 @@ import * as PopupMenu from 'resource:///org/gnome/shell/ui/popupMenu.js';
 const DECODER = new TextDecoder();
 const ENCODER = new TextEncoder();
 
+Gio._promisify(Soup.Session.prototype, 'send_and_read_async', 'send_and_read_finish');
+
 function createBoxLayout(params = {}) {
     const {vertical, spacing, ...rest} = params;
     const box = new St.BoxLayout(rest);
@@ -49,7 +51,6 @@ function createBoxLayout(params = {}) {
 }
 
 async function fetchGraphQLContributions(session, username, token) {
-    Gio._promisify(Soup.Session.prototype, 'send_and_read_async', 'send_and_read_finish');
 
     const query = JSON.stringify({
         query: `query($login: String!) {
@@ -120,7 +121,6 @@ async function fetchGraphQLContributions(session, username, token) {
 }
 
 async function fetchPublicContributions(session, username) {
-    Gio._promisify(Soup.Session.prototype, 'send_and_read_async', 'send_and_read_finish');
 
     const message = Soup.Message.new('GET', buildContributionsUrl(username));
     message.request_headers.append('User-Agent', 'github-contribution-grid-extension');
@@ -566,7 +566,17 @@ class GithubGridIndicator extends PanelMenu.Button {
         this._grid.show();
     }
 
+    destroy() {
+        this.stopAutoRefresh();
+        this._onDestroy();
+        super.destroy();
+    }
+
     _onDestroy() {
+        if (this._isDestroyed)
+            return;
+        this._isDestroyed = true;
+
         this._requestSerial += 1;
         this._isRefreshing = false;
         this.stopAutoRefresh();
@@ -606,6 +616,7 @@ export default class GithubGridExtension extends Extension {
 
     disable() {
         if (this._indicator) {
+            this._indicator.stopAutoRefresh();
             this._indicator.destroy();
             this._indicator = null;
         }
